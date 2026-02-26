@@ -14,7 +14,7 @@ app_license = "MIT"
 #   ">=15.0.0" - for ERPNext v15 and above
 #   ">=14.0.0 <16.0.0" - for ERPNext v14 and v15
 #   ">=13.0.0" - for ERPNext v13 and above
-required_erpnext_version = ">=15.0.0"  # Change this based on your target ERPNext version
+required_erpnext_version = ">=15.0.0"
 
 # Apps
 # ------------
