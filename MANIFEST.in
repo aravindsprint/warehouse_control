@@ -1,0 +1,11 @@
+include *.txt
+include *.md
+include *.toml
+recursive-include warehouse_control *.py
+recursive-include warehouse_control *.js
+recursive-include warehouse_control *.css
+recursive-include warehouse_control *.html
+recursive-include warehouse_control *.xml
+recursive-include warehouse_control *.json
+recursive-include warehouse_control *.txt
+recursive-include warehouse_control *.md
