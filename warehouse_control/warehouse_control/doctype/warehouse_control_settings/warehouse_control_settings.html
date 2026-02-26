@@ -1,0 +1,41 @@
+{% if doc.enable_app %}
+<div class="alert alert-success" role="alert">
+    <h4><i class="fa fa-check-circle text-success"></i> Warehouse Control App is Enabled</h4>
+    <p>All modules are active and available for use.</p>
+</div>
+{% else %}
+<div class="alert alert-warning" role="alert">
+    <h4><i class="fa fa-exclamation-triangle text-warning"></i> Warehouse Control App is Disabled</h4>
+    <p>The app is currently disabled. All data is preserved but modules are inactive.</p>
+</div>
+{% endif %}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Module Status</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Module</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for module in frappe.db.get_all('Module Def', filters={'app_name': 'warehouse_control'}, fields=['name', 'disabled']) %}
+                <tr class="{% if module.disabled %}danger{% else %}success{% endif %}">
+                    <td>{{ module.name }}</td>
+                    <td>
+                        {% if module.disabled %}
+                        <span class="label label-danger">Inactive</span>
+                        {% else %}
+                        <span class="label label-success">Active</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

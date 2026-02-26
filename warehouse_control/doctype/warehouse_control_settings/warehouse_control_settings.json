@@ -1,0 +1,60 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2024-01-01 00:00:00",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "enable_app",
+  "status_section",
+  "app_status_html",
+  "module_list_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "enable_app",
+   "fieldtype": "Check",
+   "label": "Enable Warehouse Control App",
+   "description": "Check to enable the app, uncheck to disable (data preserved)"
+  },
+  {
+   "fieldname": "status_section",
+   "fieldtype": "Section Break",
+   "label": "App Status"
+  },
+  {
+   "fieldname": "app_status_html",
+   "fieldtype": "HTML",
+   "label": "App Status"
+  },
+  {
+   "fieldname": "module_list_html",
+   "fieldtype": "HTML",
+   "label": "Module List"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Warehouse Control",
+ "name": "Warehouse Control Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

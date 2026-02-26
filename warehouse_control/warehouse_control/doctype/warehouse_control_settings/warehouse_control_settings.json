@@ -1,0 +1,106 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:setting_name",
+ "creation": "2024-01-01 00:00:00",
+ "default_view": "",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "setting_name",
+  "enable_app",
+  "app_control_section",
+  "app_status_html",
+  "module_details_section",
+  "module_list_html",
+  "actions_section",
+  "last_updated",
+  "updated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "setting_name",
+   "fieldtype": "Data",
+   "label": "Setting Name",
+   "reqd": 1,
+   "default": "Warehouse Control Settings",
+   "unique": 1
+  },
+  {
+   "fieldname": "enable_app",
+   "fieldtype": "Check",
+   "label": "Enable Warehouse Control App",
+   "description": "Check to enable the app, uncheck to disable (all data preserved)"
+  },
+  {
+   "fieldname": "app_control_section",
+   "fieldtype": "Section Break",
+   "label": "App Control"
+  },
+  {
+   "fieldname": "app_status_html",
+   "fieldtype": "HTML",
+   "label": "App Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "module_details_section",
+   "fieldtype": "Section Break",
+   "label": "Module Details"
+  },
+  {
+   "fieldname": "module_list_html",
+   "fieldtype": "HTML",
+   "label": "Module List"
+  },
+  {
+   "fieldname": "actions_section",
+   "fieldtype": "Section Break",
+   "label": "Actions"
+  },
+  {
+   "fieldname": "last_updated",
+   "fieldtype": "Datetime",
+   "label": "Last Updated",
+   "read_only": 1
+  },
+  {
+   "fieldname": "updated_by",
+   "fieldtype": "Link",
+   "label": "Updated By",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Warehouse Control",
+ "name": "Warehouse Control Settings",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Administrator"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

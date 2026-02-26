@@ -1,0 +1,50 @@
+import frappe
+
+def boot_session(bootinfo):
+    """Simple boot hook to hide app when disabled"""
+    try:
+        # Check if settings exist
+        if frappe.db.exists('Warehouse Control Settings', 'Warehouse Control Settings'):
+            settings = frappe.get_single('Warehouse Control Settings')
+            
+            if settings and not settings.enable_app:
+                # Remove from modules
+                if 'warehouse_control' in bootinfo.modules:
+                    del bootinfo.modules['warehouse_control']
+                
+                # Remove from module_app mapping
+                if hasattr(bootinfo, 'module_app'):
+                    module_app = {}
+                    for k, v in bootinfo.module_app.items():
+                        if v != 'warehouse_control':
+                            module_app[k] = v
+                    bootinfo.module_app = module_app
+    except Exception as e:
+        frappe.log_error(f"Warehouse Control boot error: {str(e)}")
+        pass
+
+def has_permission(doc, ptype, user):
+    """Check permissions based on app status"""
+    try:
+        if frappe.db.exists('Warehouse Control Settings', 'Warehouse Control Settings'):
+            settings = frappe.get_single('Warehouse Control Settings')
+            if settings and not settings.enable_app:
+                # Only allow if System Manager
+                if user == 'Administrator' or 'System Manager' in frappe.get_roles(user):
+                    return True
+                return False
+    except:
+        pass
+    return True
+
+def get_permission_query_conditions(user):
+    """Filter queries based on app status"""
+    try:
+        if frappe.db.exists('Warehouse Control Settings', 'Warehouse Control Settings'):
+            settings = frappe.get_single('Warehouse Control Settings')
+            if settings and not settings.enable_app:
+                if 'System Manager' not in frappe.get_roles(user):
+                    return "1=0"
+    except:
+        pass
+    return ""

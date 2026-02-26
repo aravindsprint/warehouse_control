@@ -1,0 +1,108 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+from warehouse_control import __version__ as app_version
+
+app_name = "warehouse_control"
+app_title = "Warehouse Control"
+app_publisher = "Your Company"
+app_description = "Building-based warehouse access control for ERPNext"
+app_icon = "octicon octicon-package"
+app_color = "blue"
+app_email = "your-email@company.com"
+app_license = "MIT"
+
+# after_install = "warehouse_control.setup.install.after_install"
+
+doc_events = {
+	"Stock Entry": {
+		"before_submit": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access",
+		"before_save": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access"
+	},
+	"Purchase Receipt": {
+		"before_submit": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access",
+		"before_save": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access"
+	},
+	"Purchase Invoice": {
+		"before_submit": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access",
+		"before_save": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access"
+	},
+	"Sales Invoice": {
+		"before_submit": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access",
+		"before_save": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access"
+	},
+	"Delivery Note": {
+		"before_submit": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access",
+		"before_save": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access"
+	},
+	"Subcontracting Receipt": {
+		"before_submit": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access",
+		"before_save": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access"
+	},
+	"Stock Reconciliation": {
+		"before_submit": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access",
+		"before_save": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access"
+	},
+	"Material Request": {
+		"before_submit": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access",
+		"before_save": "warehouse_control.controllers.warehouse_validator.validate_warehouse_access"
+	}
+}
+
+# Add to hooks.py
+setup_sidebar = {
+    "Settings": [
+        "Warehouse Control Settings"
+    ]
+}
+
+# Add to desktop icons
+desktop_icons = [
+    "warehouse-control-settings"
+]
+
+# Add to permissions
+permissions = [
+    {
+        "module": "Warehouse Control",
+        "roles": ["System Manager"]
+    }
+]
+
+# Setup sidebar
+setup_sidebar = {
+    "Settings": [
+        "Warehouse Control Settings"
+    ]
+}
+
+
+# ===== App Control Hooks =====
+
+# Boot session - to hide app from UI
+boot_session = "warehouse_control.overrides.boot_session"
+
+# Permission hooks
+has_permission = "warehouse_control.overrides.has_permission"
+get_permission_query_conditions = "warehouse_control.overrides.get_permission_query_conditions"
+
+# Fixtures to run after migrate
+after_migrate = [
+    "warehouse_control.fixtures.fixtures.after_migrate"
+]
+
+# Request middleware to intercept calls
+app_include_js = [
+    "warehouse_control.bundle.js"
+]
+
+# Add to setup sidebar
+setup_sidebar = {
+    "Settings": [
+        "Warehouse Control Settings"
+    ]
+}
+
+# Add desktop icon
+desktop_icons = [
+    "warehouse-control-settings"
+]
