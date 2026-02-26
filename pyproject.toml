@@ -2,6 +2,16 @@
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[tool.bench]
+app_name = "warehouse_control"
+app_version = "1.0.0"
+app_title = "Warehouse Control"
+app_description = "Building-based warehouse access control for ERPNext"
+app_publisher = "Your Company"
+app_email = "your-email@company.com"
+app_license = "MIT"
+required_erpnext_version = ">=15.0.0"  # Add this line
+
 [project]
 name = "warehouse_control"
 version = "1.0.0"
@@ -10,22 +20,3 @@ authors = [
     {name = "Your Company", email = "your-email@company.com"}
 ]
 license = {text = "MIT"}
-readme = "README.md"
-requires-python = ">=3.10"
-dependencies = [
-    # Add your dependencies here
-]
-
-[project.urls]
-homepage = "https://github.com/YOUR_USERNAME/warehouse_control"
-repository = "https://github.com/YOUR_USERNAME/warehouse_control"
-
-[tool.bench]
-app_name = "warehouse_control"
-app_version = "1.0.0"
-app_title = "Warehouse Control"
-app_description = "Building-based warehouse access control for ERPNext"
-app_icon = "icon-warehouse"
-app_color = "blue"
-app_publisher = "Your Company"
-app_email = "your-email@company.com"
