@@ -4,15 +4,12 @@ from setuptools import setup, find_packages
 with open("requirements.txt") as f:
 	install_requires = f.read().strip().split("\n")
 
-# get version from __version__ variable in warehouse_control/__init__.py
-from warehouse_control import __version__ as version
-
 setup(
 	name="warehouse_control",
-	version=version,
+	version="1.0.0",
 	description="Building-based warehouse access control for ERPNext",
-	author="Your Company",
-	author_email="your-email@company.com",
+	author="Aravind",
+	author_email="aravindsprint@gmail.com",
 	packages=find_packages(),
 	zip_safe=False,
 	include_package_data=True,
