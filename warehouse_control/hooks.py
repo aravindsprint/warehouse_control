@@ -8,13 +8,12 @@ app_description = "Building-based warehouse access control for ERPNext"
 app_email = "your-email@company.com"
 app_license = "MIT"
 
-# ERPNext version compatibility
-# Use NPM-style semver ranges
-# Examples:
-#   ">=15.0.0" - for ERPNext v15 and above
-#   ">=14.0.0 <16.0.0" - for ERPNext v14 and v15
-#   ">=13.0.0" - for ERPNext v13 and above
 required_erpnext_version = ">=15.0.0"
+
+# Install/Migrate Hooks
+# ------------
+after_install = "warehouse_control.custom_fields.warehouse_building.setup_custom_fields"
+after_migrate = "warehouse_control.custom_fields.warehouse_building.setup_custom_fields"
 
 # Apps
 # ------------
@@ -36,10 +35,6 @@ doc_events = {}
 # Scheduler Events
 # ------------
 scheduler_events = {}
-
-# Fixture import/export
-# ------------
-fixture_export_path = ""
 
 # Custom fields
 # ------------
