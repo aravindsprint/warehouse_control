@@ -278,7 +278,7 @@ class WarehouseAccessValidator:
         
         # Validate supplied items (reserve warehouse is SOURCE)
         for idx, supplied_item in enumerate(doc.supplied_items, start=1):
-            if supplied_item.reserve_warehouse:
+            if hasattr(supplied_item, 'reserve_warehouse') and supplied_item.reserve_warehouse:
                 self.validate_warehouse(supplied_item.reserve_warehouse, 'source', idx, doc.name)
     
     def _validate_stock_reconciliation(self, doc):
